@@ -1,4 +1,3 @@
-import Head from 'next/head'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import Cookies from 'js-cookie'
@@ -19,6 +18,8 @@ import {
   useBreakpointValue,
   useToast,
   Select,
+  Alert,
+  AlertIcon,
 } from "@chakra-ui/react";
 
 import useTranslation from 'next-translate/useTranslation'
@@ -28,9 +29,14 @@ import { FaEnvelope, FaKey, FaSignInAlt } from 'react-icons/fa'
 
 import config from '../../../config'
 
+import Header from '../../../components/Header'
+
 export default function Signin () {
   const toast = useToast()
   const { locale, defaultLocale } = useRouter()
+  const router = useRouter()
+
+  var timeout = null
 
   const size = useBreakpointValue({ base: "md", sm: "md", md: 'lg', lg: 'lg' })
   const flex_direction = useBreakpointValue({ sm: 'row', base: 'column' })
@@ -42,9 +48,37 @@ export default function Signin () {
   const [isInvalid, setIsInvalid] = useState(false)
   const [rememberPassword, setRememberPassword] = useState(false)
 
+  const [message, setMessage] = useState('')
+  const [typeMessage, setTypeMessage] = useState('')
+
+
   const { t, lang } = useTranslation('signin')
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    const res = await fetch(config.base_api+'/auth/signin', {
+      method: 'POST',
+      headers:{
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email,
+        password
+      })
+    }).then(r=>r.json())
+
+    if(res.ok){
+      setTypeMessage('success')
+      setMessage('Login efetuado com sucesso!')
+      clearTimeout(timeout)
+      timeout = setTimeout(() => setMessage(''), 5000)
+      router.push(`/${Cookies.get('NEXT_LOCALE')}/admin/dashboard`)
+    }else{
+      setTypeMessage('error')
+      setMessage('O email ou a senha estão incorretos')
+      timeout = setTimeout(() => setMessage(''), 5000)
+    }
 
   }
 
@@ -56,20 +90,24 @@ export default function Signin () {
 
   return (
     <Container as={Flex} justifyContent="center" alignItems="center" flexDir="column" m="0" p="12px" maxW="100%" bgColor="secondary" w="100%" h="100vh">
-      <Head>
-        <link rel="shortcut icon" type="image/x-icon" href="/assets/images/rocket-mini.png" />
-        <title>{t('page_title')} - {config.default.site_name}</title>
-      </Head>
+
+      <Header pageTitle={t('page_title')}/>
 
       <Img mb="1rem" w={{base: '164px', md: '184px', lg: '248px'}} src="/assets/images/logo.png" />
 
       <Box maxW="480px" w="100%" p="24px" bgColor="white" boxShadow="md" borderRadius="md">
-        <form action="" method="post">
-          <Flex flexDirection="column" justifyContent="center" alignItems="center" mb="2rem">
+
+        <form action="" method="post" onSubmit={handleSubmit}>
+          <Flex flexDirection="column" justifyContent="center" alignItems="center">
             <Text color="gray.600" textAlign="center" fontSize={{ base: '14px', sm: '18px', md: '18px', lg: '18px' }}>
               {t('welcome_enter_your_email_and_password_and_click_enter_to_continue')}
             </Text>
           </Flex>
+
+          <Alert opacity={message? '1' : '0' } status={typeMessage ? typeMessage : 'error'} borderRadius="md" variant="solid" mb="0.5rem">
+            <AlertIcon />
+            {message}
+          </Alert>
 
           <InputGroup>
             <InputLeftElement
@@ -86,6 +124,7 @@ export default function Signin () {
               focusBorderColor="primary_light"
               color="gray.500"
               background="gray.100"
+              value={email}
               onChange={(e) => setEmail(e.target.value)}
               disabled={loading}
               isInvalid={isInvalid}
@@ -108,6 +147,7 @@ export default function Signin () {
               focusBorderColor="primary_light"
               color="gray.500"
               background="gray.100"
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
               disabled={loading}
               isInvalid={isInvalid}
@@ -135,7 +175,6 @@ export default function Signin () {
               w="100%"
               background="primary_light"
               color="white"
-              onClick={handleSubmit}
               size={size}
               disabled={loading}
               isLoading={loading}
