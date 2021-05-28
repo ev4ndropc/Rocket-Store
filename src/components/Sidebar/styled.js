@@ -7,8 +7,9 @@ const MenuList = styled.div`
 
   .sidebar {
     width: 320px;
-    height: 100%;
+    height: 100vh;
     transition: width 0.5s;
+    padding-top: 5rem;
   }
 
   .sidebar.show {
@@ -32,6 +33,7 @@ const MenuList = styled.div`
   .menu {
     overflow-y: scroll;
     overflow-x: hidden;
+    padding-bottom: 2rem;
   }
 
 
@@ -39,9 +41,17 @@ const MenuList = styled.div`
     position: relative;
     padding:1rem 0.8rem;
     margin: 0.3rem 0rem;
-    transition: all 0.5s;
+    transition: size 0.2s;
     font-size: 18px;
     font-weight: 400;
+  }
+
+  li svg {
+    transition: all 0.5s;
+  }
+
+  li:hover svg {
+    transform: scale(1.15);
   }
 
   li a {
@@ -71,34 +81,51 @@ const MenuList = styled.div`
   }
 
   @media only screen and (max-width: 992px) {
-    .sidebar {
+    .sidebar.hide {
       width: 90px;
       height: 100%;
     }
 
-    .sidebar .logo img {
+    .sidebar.show {
+      width: 320px;
+      height: 100%;
+    }
+
+    .sidebar.hide .logo img {
       max-width: 84px;
     }
 
-    .sidebar .menu-item {
+    .sidebar.show .logo img {
+      max-width: 164px;
+    }
+
+    .sidebar.hide .menu-item {
       padding-left: 30%;
     }
 
-    .sidebar li p {
+    .sidebar.show .menu-item {
+      padding-left: 10%;
+    }
+
+    .sidebar.hide li p {
       display: none;
+    }
+
+    .sidebar.show li p {
+      display: block;
     }
 
   }
 
   @media only screen and (max-width: 576px) {
-    .sidebar {
+    .sidebar.hide {
       width: 0px;
-      top: 80px;
+      padding-top: 5rem;
     }
 
     .sidebar.show {
       width: 320px;
-      top: 80px;
+      padding-top: 5rem;
     }
 
     .sidebar.show .menu-item {

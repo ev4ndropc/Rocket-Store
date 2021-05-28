@@ -23,15 +23,10 @@ const Sidebar = (props) => {
   return (
     <SidebarContainer>
       <Flex className={`sidebar ${props.showMenu ? 'show' : 'hide' }`} flexDir="column" position="fixed" top="0" left="0" justifyContent="flex-start" alignItems="center" background="secondary" zIndex="999">
-
-        <Flex className="logo" justifyContent="center" alignItems="center" mt="1rem" mb="2rem" p="1rem">
-          <Img transition="all 0.5s" maxW="180px" src="/assets/images/logo.png" />
-        </Flex>
-
         <Flex className="menu" w="100%">
             <UnorderedList listStyleType="none" w="100%" m="0px" color="white">
               <ListItem className="active" _hover={{ color: "primary_light" }}>
-                <Link href="/">
+                <Link href="/admin/dashboard">
                   <Flex className="menu-item" w="100%" alignItems="center" pl="10%">
                     <GoHome size="28px"/>
                     <Text ml="1rem">{t('home')}</Text>
@@ -39,7 +34,7 @@ const Sidebar = (props) => {
                 </Link>
               </ListItem>
               <ListItem _hover={{ color: "primary_light" }}>
-                <Link href="/">
+                <Link href="/admin/dashboard">
                   <Flex className="menu-item" w="100%" alignItems="center" pl="10%">
                     <BsClockHistory size="26px"/>
                     <Text ml="1rem">{t('orders_logs')}</Text>
@@ -47,7 +42,7 @@ const Sidebar = (props) => {
                 </Link>
               </ListItem>
               <ListItem _hover={{ color: "primary_light" }}>
-                <Link href="/">
+                <Link href="/admin/dashboard">
                   <Flex className="menu-item" w="100%" alignItems="center" pl="10%">
                     <BiTransfer size="28px"/>
                     <Text ml="1rem">{t('transactions_logs')}</Text>
@@ -55,7 +50,7 @@ const Sidebar = (props) => {
                 </Link>
               </ListItem>
               <ListItem _hover={{ color: "primary_light" }}>
-                <Link href="/">
+                <Link href="/admin/dashboard">
                   <Flex className="menu-item" w="100%" alignItems="center" pl="10%">
                     <IoDuplicateOutline size="26px"/>
                     <Text ml="1rem">{t('category')}</Text>
@@ -63,7 +58,7 @@ const Sidebar = (props) => {
                 </Link>
               </ListItem>
               <ListItem _hover={{ color: "primary_light" }}>
-                <Link href="/">
+                <Link href="/admin/dashboard">
                   <Flex className="menu-item" w="100%" alignItems="center" pl="10%">
                     <HiOutlineShoppingCart size="26px"/>
                     <Text ml="1rem">{t('services')}</Text>
@@ -71,7 +66,7 @@ const Sidebar = (props) => {
                 </Link>
               </ListItem>
               <ListItem _hover={{ color: "primary_light" }}>
-                <Link href="/">
+                <Link href="/admin/dashboard">
                   <Flex className="menu-item" w="100%" alignItems="center" pl="10%">
                     <FiUsers size="26px"/>
                     <Text ml="1rem">{t('customers')}</Text>
@@ -79,7 +74,7 @@ const Sidebar = (props) => {
                 </Link>
               </ListItem>
               <ListItem _hover={{ color: "primary_light" }}>
-                <Link href="/">
+                <Link href="/admin/dashboard">
                   <Flex className="menu-item" w="100%" alignItems="center" pl="10%">
                     <ImQuestion size="26px"/>
                     <Text ml="1rem">{t('faq')}</Text>
@@ -87,7 +82,7 @@ const Sidebar = (props) => {
                 </Link>
               </ListItem>
               <ListItem _hover={{ color: "primary_light" }}>
-                <Link href="/">
+                <Link href="/admin/dashboard">
                   <Flex className="menu-item" w="100%" alignItems="center" pl="10%">
                     <BiShareAlt size="28px"/>
                     <Text ml="1rem">{t('providers')}</Text>
@@ -95,7 +90,7 @@ const Sidebar = (props) => {
                 </Link>
               </ListItem>
               <ListItem _hover={{ color: "primary_light" }}>
-                <Link href="/">
+                <Link href="/admin/dashboard">
                   <Flex className="menu-item" w="100%" alignItems="center" pl="10%">
                     <IoLanguage size="28px"/>
                     <Text ml="1rem">{t('language')}</Text>
@@ -103,7 +98,7 @@ const Sidebar = (props) => {
                 </Link>
               </ListItem>
               <ListItem _hover={{ color: "primary_light" }}>
-                <Link href="/">
+                <Link href="/admin/dashboard">
                   <Flex className="menu-item" w="100%" alignItems="center" pl="10%">
                     <BiCog size="28px"/>
                     <Text ml="1rem">{t('settings')}</Text>
@@ -111,15 +106,15 @@ const Sidebar = (props) => {
                 </Link>
               </ListItem>
               <ListItem _hover={{ color: "primary_light" }}>
-                <Link href="/">
+                <Link href="/admin/dashboard">
                   <Flex className="menu-item" w="100%" alignItems="center" pl="10%">
                     <BiAdjust size="28px"/>
                     <Text ml="1rem">{t('theme_customizer')}</Text>
                   </Flex>
                 </Link>
               </ListItem>
-              <ListItem _hover={{ color: "primary_light" }}>
-                <Link href="/">
+              <ListItem pb="80px" _hover={{ color: "primary_light" }}>
+                <Link href="/admin/dashboard">
                   <Flex className="menu-item" w="100%" alignItems="center" pl="10%">
                     <BiExit size="28px"/>
                     <Text ml="1rem">{t('logout')}</Text>

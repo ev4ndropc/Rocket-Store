@@ -3,7 +3,11 @@ import styled from 'styled-components'
 const TopbarContainer = styled.div`
 
   .topbar {
-    padding-left: 320px;
+    transition: all 0.5s;
+    z-index: 9999;
+  }
+
+  .topbar.show {
     transition: all 0.5s;
   }
 
@@ -47,20 +51,18 @@ const TopbarContainer = styled.div`
     width: 26px
   }
 
+
   @media only screen and (max-width: 992px) {
-    .topbar {
-      padding-left: 100px;
-    }
+
   }
 
-  @media only screen and (min-width: 577px) {
-    .topbar.show {
-      padding-left: 100px;
-    }
-  }
 
   @media only screen and (max-width: 576px) {
     .topbar {
+      padding-left: 0px;
+    }
+
+    .topbar.show {
       padding-left: 0px;
     }
   }

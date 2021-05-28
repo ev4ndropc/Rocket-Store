@@ -1,4 +1,4 @@
-import { Flex, Wrap, WrapItem, Avatar, Text } from "@chakra-ui/react"
+import { Flex, Wrap, WrapItem, Avatar, Text, Img } from "@chakra-ui/react"
 
 import TopbarContainer from './styled'
 
@@ -12,8 +12,11 @@ const Topbar = (props) => {
 
     <TopbarContainer>
       <Flex className={`topbar ${props.showMenu ? 'show' : 'hide' }`} w="100%" position="fixed" top="0px" background="secondary" p="1rem" justifyContent="space-between" alignItems="center">
-
-        <Flex>
+        
+        <Flex alignItems="center">
+          <Flex className="logo" justifyContent="center" alignItems="center" p="1rem">
+            <Img transition="all 0.5s" maxW="140px" src={`/assets/images/logo.png`} />
+          </Flex>
           <Flex className="hamburger" onClick={handleChangeMenu}>
             <span className="line"></span>
             <span className="line"></span>
