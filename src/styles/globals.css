@@ -48,3 +48,35 @@ li {
     display: none;
     width: 0;
 }
+
+
+
+
+.container-table::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+.container-table::-webkit-scrollbar:vertical {
+    width: 6px;
+    transition: all 0.2s;
+}
+
+.container-table::-webkit-scrollbar:horizontal {
+    height: 6px;
+}
+
+.container-table::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+}
+
+.container-table:hover::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.container-table::-webkit-scrollbar-track {
+    display: none;
+    width: 0;
+}
+
+

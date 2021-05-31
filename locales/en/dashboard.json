@@ -1,15 +1,3 @@
 {
-  "page_title": "Dashboard",
-  "home": "Home",
-  "orders_logs": "Orders logs",
-  "transactions_logs": "Transactions logs",
-  "category": "Category",
-  "services": "Services",
-  "customers": "Customers",
-  "settings": "Settings",
-  "faq": "FAQ",
-  "providers": "Providers",
-  "language": "Language",
-  "theme_customizer": "Theme customizer",
-  "logout": "Logout"
+  "page_title": "Dashboard"
 }

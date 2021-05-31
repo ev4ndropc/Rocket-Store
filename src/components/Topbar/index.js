@@ -13,7 +13,7 @@ const Topbar = (props) => {
     <TopbarContainer>
       <Flex className={`topbar ${props.showMenu ? 'show' : 'hide' }`} w="100%" position="fixed" top="0px" background="secondary" p="1rem" justifyContent="space-between" alignItems="center">
         
-        <Flex alignItems="center">
+        <Flex className="container-logo" alignItems="center" w="100%" maxW="320px" justifyContent="space-between">
           <Flex className="logo" justifyContent="center" alignItems="center" p="1rem">
             <Img transition="all 0.5s" maxW="140px" src={`/assets/images/logo.png`} />
           </Flex>

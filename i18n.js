@@ -7,6 +7,8 @@ module.exports = {
     "/admin/signin": ["signin"],
     "/admin/recovery": ["recovery"],
     "/admin/dashboard": ["dashboard"],
+    "/admin/category": ["category"],
+    "/admin/social_networks": ["social_networks"]
 
   }
 }

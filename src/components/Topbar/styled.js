@@ -65,8 +65,18 @@ const TopbarContainer = styled.div`
     .topbar.show {
       padding-left: 0px;
     }
+
+    .container-logo {
+      max-width: 200px
+    }
   }
 
+
+  @media only screen and (max-width: 576px) {
+    .logo {
+      display: none;
+    }
+  }
 `
 
 export default TopbarContainer

@@ -1,15 +1,3 @@
 {
-  "page_title": "Panel de control",
-  "home": "Comienzo",
-  "orders_logs": "Historial de pedidos",
-  "transactions_logs": "Historial de transacciones",
-  "category": "Categoría",
-  "services": "Servicios",
-  "customers": "Clientes",
-  "settings": "Ajustes",
-  "faq": "FAQ",
-  "providers": "Proveedores",
-  "language": "Idioma",
-  "theme_customizer": "Personalizar el sistema",
-  "logout": "Salir"
+  "page_title": "Panel de control"
 }

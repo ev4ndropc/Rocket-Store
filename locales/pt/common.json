@@ -1,4 +1,15 @@
 {
-  "title": "Hello world",
-  "variable-example": "Using a variable {{count}}"
+  "home": "Início",
+  "orders_logs": "Histórico de pedidos",
+  "transactions_logs": "Histórico de transações",
+  "social_networks": "Redes sociais",
+  "category": "Categorias",
+  "services": "Serviços",
+  "customers": "Clientes",
+  "settings": "Configurações",
+  "faq": "FAQ",
+  "providers": "Fornecedores",
+  "language": "Idioma",
+  "theme_customizer": "Customizar o sistema",
+  "logout": "Sair"
 }
