@@ -1,7 +1,7 @@
 import { Flex } from "@chakra-ui/layout"
 
 import useTranslation from 'next-translate/useTranslation'
-import setLanguage from 'next-translate/setLanguage'
+import cookie from 'cookie'
 
 import Header from '../../../components/Header'
 import Sidebar from '../../../components/Sidebar'
@@ -28,6 +28,28 @@ const Dashboard = () => {
       </Flex>
     </Flex>
   )
+}
+
+export const getServerSideProps = async (context) => {
+  let cookies
+
+  cookies = context.req.headers.cookie
+
+  cookies = cookie.parse(cookies)
+  
+  
+  if(!cookies.token){
+    return {
+        redirect: {
+            permanent: false,
+            destination: '/admin/signin'
+          }
+      }
+  }
+
+
+
+  return {props: { ok: true }}
 }
 
 export default Dashboard

@@ -17,7 +17,6 @@ import {
   InputLeftElement,
   useBreakpointValue,
   useToast,
-  Select,
   Alert,
   AlertIcon,
 } from "@chakra-ui/react";
@@ -27,9 +26,9 @@ import setLanguage from 'next-translate/setLanguage'
 
 import { FaEnvelope, FaKey, FaSignInAlt } from 'react-icons/fa'
 
-import config from '../../../config'
-
 import Header from '../../../components/Header'
+
+import config from '../../../config'
 
 export default function Signin () {
   const toast = useToast()
@@ -72,6 +71,7 @@ export default function Signin () {
       setTypeMessage('success')
       setMessage('Login efetuado com sucesso!')
       clearTimeout(timeout)
+      Cookies.set('token', res.token)
       timeout = setTimeout(() => setMessage(''), 5000)
       router.push(`/${Cookies.get('NEXT_LOCALE')}/admin/dashboard`)
     }else{

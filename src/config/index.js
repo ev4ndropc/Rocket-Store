@@ -1,5 +1,7 @@
+const development = true
+const base_api = ''
 module.exports = {
-    base_api: 'http://localhost:4000',
+    base_api: development ? 'http://localhost:4000' : base_api,
     default: {
         site_name: 'Rocket Store',
         default_language: 'pt_BR'
